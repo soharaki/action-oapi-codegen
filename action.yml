@@ -1,0 +1,23 @@
+name: 'oapi-codegen action'
+author: 'Dummy'
+description: 'oapi-codegen action'
+
+branding:
+  icon: 'file'
+  color: 'gray-dark'
+inputs:
+    filename:
+        description: 'oapi specfile'
+        required: true
+        default: 'openapi-spec.yaml'
+    generate_types:
+        description: '--generate'
+        required: false
+        default: "server,types,spec"
+    package_name:
+        description: '--package'
+        required: false
+        default: 'api'                
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
