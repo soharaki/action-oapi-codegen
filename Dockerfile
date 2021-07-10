@@ -10,7 +10,7 @@ RUN go get github.com/deepmap/oapi-codegen/cmd/oapi-codegen
 
 # Setup the entrypoint
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Run commands
 ENTRYPOINT ["/entrypoint.sh"]

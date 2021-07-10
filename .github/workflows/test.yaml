@@ -7,8 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ./
+      - name: run oapi-codegen
+        uses: ./
         with:
-          filename: "openapi-spec.yaml"
-          generate_types: "server,types,spec"
-          package_name: "api"
+          oapi: "openapi-spec.yaml"
+          boilerplates: "server,types,spec"
+          package: "api"
+          export: true
+          export_filename: "server.gen.go"
+      - name: check the generated file
+        run: |
+          cat "server.gen.go"

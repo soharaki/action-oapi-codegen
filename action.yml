@@ -6,18 +6,26 @@ branding:
   icon: 'file'
   color: 'gray-dark'
 inputs:
-    filename:
-        description: 'oapi specfile'
+    oapi:
+        description: 'OpenAPI specfile'
         required: true
         default: 'openapi-spec.yaml'
-    generate_types:
-        description: '--generate'
+    boilerplates:
+        description: 'Boilerplates types'
         required: false
         default: "server,types,spec"
-    package_name:
-        description: '--package'
+    package:
+        description: 'Package name'
         required: false
-        default: 'api'                
+        default: 'main'            
+    export:
+        description: 'Enable exporting to file'
+        required: false
+        default: true  
+    export_filename:
+        description: 'Export file name'
+        required: false
+        default: 'server.gen.go'                
 runs:
     using: 'docker'
     image: 'Dockerfile'
